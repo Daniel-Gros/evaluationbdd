@@ -98,6 +98,8 @@ GRANT INSERT, UPDATE, DELETE ON cinema_db.Seance TO 'user3'@'localhost';
 -- Requête suivante impossible à exécuter donc la suite des requêtes sera une suppression de tous les comptes pour les recréer ainsi que leurs accès propres --
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'mdpadmin';
 
+-- Correction et création des comptes administrateur et utilisateur --
+
 DROP USER 'admin'@'localhost';
 FLUSH PRIVILEGES;
 
