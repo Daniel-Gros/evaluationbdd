@@ -1,3 +1,9 @@
+-- Création de la base de données --
+CREATE DATABASE IF NOT EXISTS cinema_db;
+
+USE cinema_db;
+
+
 -- Création des comptes administrateur et utilisateur --
 
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'mdpadmin';
@@ -13,11 +19,6 @@ CREATE USER 'user3'@'localhost' IDENTIFIED BY 'mdpuser3';
 
 GRANT INSERT, UPDATE, DELETE ON cinema_db.Seance TO 'user3';
 
-
--- Création de la base de données --
-CREATE DATABASE IF NOT EXISTS cinema_db;
-
-USE cinema_db;
 
 -- Création des tables --
 CREATE TABLE  Utilisateur (
@@ -70,10 +71,10 @@ CREATE TABLE Paiement (
 
 -- Création des comptes --
 
-INSERT INTO Administrateur (nom, prenom, email, passwd) VALUES ('admin', 'admin', 'admin@cineval.fr', 'admin');
-INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user1', 'user1', 'user1@cineval.fr', 'user1');
-INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user2', 'user2', 'user2@cineval.fr', 'user2');
-INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user3', 'user3', 'user3@cineval.fr', 'user3');
+INSERT INTO Administrateur (nom, prenom, email, passwd) VALUES ('admin', 'admin', 'admin@cineval.fr', SHA2('admin', '780rdb01600SE' ));
+INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user1', 'user1', 'user1@cineval.fr', SHA2('user1', '780rdb01600SE'));
+INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user2', 'user2', 'user2@cineval.fr', SHA2('user2', '780rdb01600SE'));
+INSERT INTO Utilisateur (nom, prenom, email, passwd) VALUES ('user3', 'user3', 'user3@cineval.fr', SHA2('user3', '780rdb01600SE'));
 
 
 -- Ajout de contraintes liées à l'entretien avec le client --
